@@ -1,0 +1,51 @@
+
+.card {
+  min-width: 350px;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.example-form {
+  width: 100%;
+}
+
+.example-full-width {
+  margin-top: 10px;
+  width: 100%;
+}
+
+mat-card-header{
+  margin-top: 25px;
+}
+
+.logbutton{
+  margin-top: 10px;
+    width: 100%;
+    color: white;
+    height: 40px;
+    background-color: #3F51B5;
+}
+
+.logbutton2{
+    margin-top: 10px;
+    width: 100%;
+    color: white;
+    height: 40px;
+    background-color: #b62330;
+}
+
+
+.container{
+  margin-top: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-tab-group{
+  justify-items: center;
+}
+

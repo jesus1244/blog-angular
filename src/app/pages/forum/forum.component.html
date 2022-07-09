@@ -1,0 +1,47 @@
+<main class="main">
+    <div class="container">
+      <h1>{{ forumName }}</h1>
+    <img
+      src="http://www.smashbros.com/images/og/kirby.jpg"
+      alt=""
+      width="200"
+      class="img"
+    />
+    <p class="p">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quis architecto
+    deleniti nostrum, quia incidunt excepturi sint, adipisci itaque eveniet iste.
+    Omnis facere enim optio? Nobis modi itaque delectus ut?
+    </p>
+  </div>
+  <div class="example-form">
+    <mat-card *ngFor="let comment of comments">
+      <mat-card-header>
+        <mat-card-subtitle>
+        {{ comment.username }}:
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <p>{{ comment.comment }}</p>
+      </div>
+    </mat-card-content>
+    
+  </mat-card>
+  <div class="container2">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Leave a comment</mat-label>
+    <textarea 
+      matInput 
+      placeholder="Ex. It makes me feel..."
+      [(ngModel)]="comment"></textarea>
+    </mat-form-field>
+    <button 
+    mat-button
+    (click)="showComments()"
+    color="primary"
+    class="button">
+    Comment
+  </button>
+  </div>
+  </div>
+  </main>

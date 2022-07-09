@@ -1,0 +1,49 @@
+.main{
+    width: 90%;
+    
+  }
+  .container{
+    width: 100%;
+    min-width: 370px;
+    padding: 10px;
+    display: flex;
+  }
+  .container2{
+    display: flex;
+    align-items: center;
+  }
+  .img{
+    padding: 10px;
+    padding-top: 20px;
+    min-width: 100px;
+  }
+  .p{
+    padding: 10px;
+    vertical-align: text-top;
+    width: 100%;
+    max-width: 350px;
+  }
+  .button{
+    max-height: 45px;
+    max-width: 110px;
+    min-width: 110px;
+    margin-left: 10px;
+    width: 100%;
+  }
+  .example-form {
+    width: 100%;
+    padding: 10px;
+    padding-top: 10px;
+    
+  }
+  
+  .example-full-width {
+    width: 100%;
+    min-width: 270px;
+  }
+  
+  mat-card{
+    width: 100%;
+    max-width: 340px;
+    margin: 10px;
+  }

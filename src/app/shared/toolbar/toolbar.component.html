@@ -1,0 +1,52 @@
+<!-- <div class="example-container">
+  <mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="snav.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="menu">{{ ngOnInit() }}</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>log out</button>
+  </mat-menu>
+</mat-toolbar>
+<mat-sidenav-container class="snav-container">
+  <mat-sidenav
+    #snav
+    mode="over"
+    [(opened)]="opened"
+    (opened)="events.push('open!')"
+    (closed)="events.push('close!')"
+  >
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
+
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+
+      <button mat-icon-button disabled></button>
+      {{node.name}}
+    </mat-tree-node>
+    
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+      <button mat-icon-button matTreeNodeToggle
+              [attr.aria-label]="'Toggle ' + node.name">
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      {{node.name}}
+    </mat-tree-node>
+  </mat-tree>
+  </mat-sidenav>
+  <mat-sidenav-content>
+  
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div> -->
+<div class="">
+  
+</div>

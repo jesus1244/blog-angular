@@ -1,0 +1,100 @@
+
+<p>login works!</p>
+
+<main class="container">
+  <mat-card class="card">
+    <mat-tab-group mat-align-tabs="center" dynamicHeight>
+      <mat-tab label="Sign in">
+        <mat-card-header>
+          <mat-card-title>Sign in</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>User</mat-label>
+              <input
+                type="email"
+                matInput
+                [formControl]="emailFormControl"
+                [errorStateMatcher]="matcher"
+                placeholder="Ex. pat@example.com"
+                name="email"
+                [(ngModel)]="user.user"
+              />
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                User is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                type="password"
+                name="password"
+                [(ngModel)]="user.password"
+              />
+            </mat-form-field>
+            <button
+              mat-stroked-button
+              color="primary"
+              (click)="enviar()"
+              class="logbutton"
+            >
+              Log in
+            </button>
+            <button 
+              mat-stroked-button
+              color="warn" 
+              (click)="ingresarGoogle()"
+              class="logbutton2">Ingresar con google</button>
+          </div>
+        </mat-card-content>
+      </mat-tab>
+      <mat-tab label="Sign up">
+        <mat-card-header>
+          <mat-card-title> Sign up </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Username</mat-label>
+              <input matInput type="text" [(ngModel)]="user.username" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>User</mat-label>
+              <input
+                type="email"
+                matInput
+                [formControl]="emailFormControl"
+                [errorStateMatcher]="matcher"
+                placeholder="Ex. pat@example.com"
+                [(ngModel)]="user.user"
+              />
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                User is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" [(ngModel)]="user.password" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Confirm assword</mat-label>
+              <input matInput type="password" />
+            </mat-form-field>
+            <button
+              mat-stroked-button
+              color="primary"
+              (click)="register()"
+              class="logbutton"
+            >
+              Log in
+            </button>
+            
+          </div>
+        </mat-card-content>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</main>
+
