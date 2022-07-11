@@ -1,5 +1,5 @@
-<mat-drawer-container class="example-container" autosize *ngIf="!showToolbar">
-    <mat-toolbar color="primary">
+<mat-drawer-container class="example-container" autosize>
+    <mat-toolbar color="primary" aria-label="Top Toolbar">
       <button
         mat-icon-button
         class="example-icon"
@@ -8,11 +8,12 @@
       >
         <mat-icon>menu</mat-icon>
       </button>
-      <span>My App</span>
+      <span><a routerLink="/home" mat-button routerLinkActive="item-selected" class="buttonHome">Home</a></span>
       <span class="example-spacer"></span>
-      <button mat-button [matMenuTriggerFor]="menu">{{ userlogg }}</button>
+      <button mat-button [matMenuTriggerFor]="menu" *ngIf="isUser">{{ userlogg }}</button>
+      <button mat-button *ngIf="!isUser" routerLink="/login">Sign in</button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>log out</button>
+        <button mat-menu-item (click)="logout()">log out</button>
       </mat-menu>
     </mat-toolbar>
     <mat-drawer #drawer class="example-sidenav" mode="over">
@@ -33,5 +34,3 @@
     </div>
   
   </mat-drawer-container>
-
-  <router-outlet *ngIf="showToolbar"></router-outlet>

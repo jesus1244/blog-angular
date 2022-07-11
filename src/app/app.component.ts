@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { comment, forum, tokenUser, user } from './interfaces/interfaces.interface';
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit{
   constructor( 
     private pageService: PagesService, 
     private router: Router, 
-    private ac: ActivatedRoute ) {}
+    private fireAuth: AngularFireAuth, ) {}
+    
 
   showFiller = false;
 
@@ -24,39 +26,37 @@ export class AppComponent implements OnInit{
 
   userlogg = '';
 
-  ngOnInit(){
+  isUser = false;
 
-    const tokendecode:tokenUser = this.pageService.decodeToken();
-    this.userlogg = tokendecode.user.username;
+  ngOnInit(){
 
     this.pageService.forum2().subscribe(data  => {
       this.forums = data;
-      console.log(data)
+      console.log(data);
     })
 
-    // this.ac.paramMap.pipe(
-    //   switchMap((params: ParamMap) => this.pageService.forum(params.get('id') || undefined))
-    // ).subscribe(data => {
-    //   this.forum = data;
-    //   console.log("holaa2",data)
-    // });
+    const tokendecode:tokenUser = this.pageService.decodeToken();
 
-      if(this.router.url !== '/login'){
-        
-        this.showToolbar
+    console.log(tokendecode)
+    if(tokendecode !== null){
+    this.userlogg = tokendecode.user.username;
+    }
 
-      }else{
-       
-        this.showToolbar = true
+    if(this.userlogg !== '') this.isUser = true;
 
-      }
   }
 
   goForum(forum: forum){
     
     const id = forum.id;
-    this.router.navigate(['/forum', id])
+    this.router.navigate(['/forum', id]);
     
+  }
+
+  logout(){
+    this.fireAuth.signOut();
+    localStorage.removeItem('token');
+    location.reload();
   }
   title = 'forum';
 }

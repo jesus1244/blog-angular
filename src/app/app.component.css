@@ -12,6 +12,7 @@
     right: 0;
   }
   
+  
   .example-sidenav-content {
     display: flex;
     align-items: center;
@@ -24,4 +25,8 @@
 
   .example-sidenav {
     padding: 20px;
+  }
+
+  .buttonHome{
+    font-size: 19px;
   }

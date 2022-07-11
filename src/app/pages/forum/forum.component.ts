@@ -59,11 +59,7 @@ export class ForumComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    
-    const tokendecode:tokenUser = this.pageService.decodeToken();
-    
-    this.userlogg = tokendecode.user.username;
+  ngOnInit() { 
 
     // this.pageService.comments().subscribe((data) => {
 

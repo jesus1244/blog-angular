@@ -5,6 +5,7 @@ import { PagesService } from '../pages.service';
 
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   hide = true;
 
-  userlog = '';
+  userlog:any;
 
   user = {
     user: '',
@@ -35,13 +36,10 @@ export class LoginComponent implements OnInit {
     username:''
   }
 
-  constructor( private router: Router, private pageSevice: PagesService ) { }
+  constructor( private router: Router, private pageSevice: PagesService, private fireAuth: AngularFireAuth ) { }
 
   ngOnInit(){
 
-    const tokendecode:tokenUser = this.pageSevice.decodeToken();
-    
-    return tokendecode.user.username;
   }
 
   enviar(){
@@ -69,8 +67,8 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  getUserLogged(){
-    
+  logout(){
+    this.fireAuth.signOut();
   }
 
   ingresarGoogle(){
@@ -78,7 +76,9 @@ export class LoginComponent implements OnInit {
     const {user, password} = this.user
 
     this.pageSevice.loginGoogle(user, password).then(res=> {
+      this.userlog = res;
       console.log("Registrado",res);
+
     })
   }
 }

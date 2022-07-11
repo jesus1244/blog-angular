@@ -74,6 +74,7 @@ export class PagesService {
 
   }
 
+
   isToken():boolean {
     const token = localStorage.getItem('token');
     if(token !== null && this.jwtHelper.isTokenExpired(token) || !localStorage.getItem('token')){

@@ -38,11 +38,11 @@ mat-card-header{
 
 
 .container{
-  margin-top: 150px;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-self: auto;
+  margin-top: 50px;
 }
 
 mat-tab-group{
